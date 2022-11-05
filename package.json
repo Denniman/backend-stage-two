@@ -1,0 +1,18 @@
+{
+  "name": "backend-stage-two",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:Denniman/backend-stage-two.git",
+  "author": "Dennis Terna",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
