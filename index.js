@@ -1,15 +1,10 @@
 import express from "express";
 
 const app = express();
+
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
-
-const mathematicalOperation = {
-  addition: "addition",
-  subtraction: "subtraction",
-  multiplication: "multiplication",
-};
 
 const responseObject = {
   slackUsername: "denniman02",
@@ -27,20 +22,21 @@ app.post("/", (req, res) => {
     res.status(400).send("missing x and y integer");
     return;
   }
-  let result;
 
   if (typeof y !== "number" || typeof x !== "number") {
     res.status(400).send("x and y must be an integer value");
     return;
   }
 
-  switch (mathematicalOperation[operation_type]) {
+  let result;
+
+  switch (operation_type) {
     case "addition":
       result = y + x;
       res.send({
         ...responseObject,
         result,
-        operation_type: mathematicalOperation[operation_type],
+        operation_type,
       });
       break;
     case "subtraction":
@@ -48,7 +44,7 @@ app.post("/", (req, res) => {
       res.send({
         ...responseObject,
         result,
-        operation_type: mathematicalOperation[operation_type],
+        operation_type,
       });
       break;
     case "multiplication":
@@ -56,7 +52,7 @@ app.post("/", (req, res) => {
       res.send({
         ...responseObject,
         result,
-        operation_type: mathematicalOperation[operation_type],
+        operation_type,
       });
       break;
     default:
