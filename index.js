@@ -15,7 +15,7 @@ const responseObject = {
   slackUsername: "denniman02",
 };
 
-app.post("/api", (req, res) => {
+app.post("/", (req, res) => {
   const { operation_type, y, x } = req.body;
 
   if (!operation_type) {
